@@ -45,5 +45,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   P1_score: {fileID: 0}
   P2_score: {fileID: 0}
-  P1_score_num: 0
-  P2_score_num: 0
+  time_remaining: 20
+  timer_running: 0
+  timer_text: {fileID: 0}
+  SceneChanger: {fileID: 0}
+  SceneChangerTag: sceneManager
+  roundOverScene: RoundOverScreen
+  P1_wins: 0

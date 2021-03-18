@@ -40,6 +40,7 @@ public class player_controller : MonoBehaviour
     public float knockbackY;
 
     public GameObject scoreBoardHandler;
+    public string scoreBoard_tag;
 
     public string right_button;
     public string left_button;
@@ -51,7 +52,7 @@ public class player_controller : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (!scoreBoardHandler) { scoreBoardHandler = GameObject.FindGameObjectWithTag(scoreBoard_tag); }
     }
 
     // Update is called once per frame

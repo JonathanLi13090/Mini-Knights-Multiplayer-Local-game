@@ -121,7 +121,7 @@ MonoBehaviour:
   check_radius: 0.25
   what_is_ground:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 1280
   what_is_enemy:
     serializedVersion: 2
     m_Bits: 256
@@ -138,6 +138,7 @@ MonoBehaviour:
   knockbackX: 40
   knockbackY: 15
   scoreBoardHandler: {fileID: 0}
+  scoreBoard_tag: 
   right_button: right
   left_button: left
   up_button: up

@@ -17,15 +17,13 @@ public class ScoreBoardHandler : MonoBehaviour
     public GameObject SceneChanger;
     public string SceneChangerTag;
 
-    public string roundOverScene;
-    public bool P1_wins;
-    public bool P2_wins;
-    public Text WinText;
+    public GameObject roundOverHandler;
 
     // Start is called before the first frame update
     void Start()
     {
         if (!SceneChanger) { SceneChanger = GameObject.FindGameObjectWithTag(SceneChangerTag); }
+        if(!roundOverHandler) { roundOverHandler = GameObject.FindGameObjectWithTag("roundOverHandler"); }
 
         P1_score.text = P1_score_num.ToString();
         P2_score.text = P2_score_num.ToString();
@@ -88,6 +86,6 @@ public class ScoreBoardHandler : MonoBehaviour
 
     public void handleRoundOver()
     {
-        SceneChanger.GetComponent<SceneChange>().ChangeScene(roundOverScene);       
+        roundOverHandler.GetComponent<RoundOverHandler>().RoundOver();
     }
 }

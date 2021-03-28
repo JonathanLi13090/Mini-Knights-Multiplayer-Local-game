@@ -7,12 +7,16 @@ public class SceneChange : MonoBehaviour
 {
     public string p1_tag;
     public string p2_tag;
+    public bool change_on_button;
     public string scene_name;
     public string change_scene_button;
 
     private void Update()
     {
-        handleSceneOnButton();
+        if (change_on_button)
+        {
+            handleSceneOnButton();
+        }
     }
 
     public void ChangeScene(string sceneName)

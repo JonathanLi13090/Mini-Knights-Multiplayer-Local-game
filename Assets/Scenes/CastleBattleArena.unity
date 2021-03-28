@@ -1313,6 +1313,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1599451096994070953, guid: 25feeda63b89db74fa4c6abf9e0b4abb,
+        type: 3}
+      propertyPath: change_scene_button
+      value: space
+      objectReference: {fileID: 0}
     - target: {fileID: 1599451096994070958, guid: 25feeda63b89db74fa4c6abf9e0b4abb,
         type: 3}
       propertyPath: m_Name
@@ -2865,8 +2870,24 @@ PrefabInstance:
     - target: {fileID: 1588028747242429283, guid: 9b9dc58c79babf8448c05bf369d71aab,
         type: 3}
       propertyPath: time_remaining
-      value: 60
+      value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 1588028747242429283, guid: 9b9dc58c79babf8448c05bf369d71aab,
+        type: 3}
+      propertyPath: roundOverHandler
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1588028747242429283, guid: 9b9dc58c79babf8448c05bf369d71aab,
+        type: 3}
+      propertyPath: roundOverScene
+      value: RoundOverScreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 1588028747242429283, guid: 9b9dc58c79babf8448c05bf369d71aab,
+        type: 3}
+      propertyPath: player_scores
+      value: 
+      objectReference: {fileID: 11400000, guid: 1ee54a5e1708bd94aa2692aabb52f62d,
+        type: 2}
     - target: {fileID: 1588028747242429284, guid: 9b9dc58c79babf8448c05bf369d71aab,
         type: 3}
       propertyPath: m_Name

@@ -1,2 +1,2 @@
 # Mini Knights Local Multiplayer
- Mini Knights Local Multiplayer Battle Game
+ Mini Knights is a 2D local multiplayer battle game. In the game two players battle on an arena and the goal is to knock the other player off of the arena. Players can double jump, attack, and block. When a player attack another player, the player will get knocked backwards, if the player is blocking, they will only get knocked backward a little bit. When a player is blocking, they can't attack and move slower.

@@ -172,12 +172,12 @@ public class player_controller : MonoBehaviour
         {
             if (direction == 1)
             {
-                if (facing_right == false) { rb.velocity = new Vector2(knockbackX / 2, knockbackY / 2); }
+                if (facing_right == false) { rb.velocity = new Vector2(knockbackX / 3, knockbackY / 3); }
                 else { rb.velocity = new Vector2(knockbackX, knockbackY); }
             }
             else if (direction == 2)
             {
-                if (facing_right == true) { rb.velocity = new Vector2(-knockbackX / 2, knockbackY / 2); }
+                if (facing_right == true) { rb.velocity = new Vector2(-knockbackX / 3, knockbackY / 3); }
                 else { rb.velocity = new Vector2(-knockbackX, knockbackY); }
             }
             else

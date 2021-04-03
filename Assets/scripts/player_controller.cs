@@ -4,24 +4,33 @@ using UnityEngine;
 
 public class player_controller : MonoBehaviour
 {
-    public bool is_p1;
+    //variables
 
+    //audio
+    public GameObject audio_handler;
+
+    //physics
     public Rigidbody2D rb;
+
     public float move_speed;
+
     public float jump_force;
     public int max_jumps;
     private int jumps_left;
+
+    public float knockbackX;
+    public float knockbackY;
 
     public Transform ground_check;
     public float check_pos_distance;
     public float check_radius;
     private bool is_grounded;
 
-    private bool facing_right = false;
-
+    //layermasks
     public LayerMask what_is_ground;
     public LayerMask what_is_enemy;
 
+    //attack stuff
     public Transform attack_point;
     public Vector2 still_attack_point;
     public Vector2 moving_attack_point;
@@ -29,33 +38,35 @@ public class player_controller : MonoBehaviour
 
     private bool shieldUp;
 
-    public Animator animator;
-
+    //repawn stuff
     public GameObject respawn_point;
     public LayerMask respawn_layer;
     private bool is_respawn;
     public string respawn_tag;
 
-    public float knockbackX;
-    public float knockbackY;
-
+    //scoreboard stuff
     public GameObject scoreBoardHandler;
     public string scoreBoard_tag;
 
+    //input stuff
     public string right_button;
     public string left_button;
     public string up_button;
     public string down_button;
     public string attack_button;
 
+    //other stuff
+    public bool is_p1;
+    private bool facing_right = false;
+    public Animator animator;
 
-    // Start is called before the first frame update
+    //-----------------------------------------------------------------------------------------------------------------------------------\\
     void Start()
     {
+        if(!audio_handler) { audio_handler = GameObject.FindGameObjectWithTag("audioHandler"); }
         if (!scoreBoardHandler) { scoreBoardHandler = GameObject.FindGameObjectWithTag(scoreBoard_tag); }
     }
 
-    // Update is called once per frame
     void Update()
     {
         handleAnimations();
@@ -79,11 +90,13 @@ public class player_controller : MonoBehaviour
         {
             if (is_grounded == true)
             {
-                rb.velocity = new Vector2(rb.velocity.x, jump_force);          
+                rb.velocity = new Vector2(rb.velocity.x, jump_force);
+                audio_handler.GetComponent<Audio_Handler>().PlaySound("Player", "player_jump");
             }
             else if (jumps_left > 0)
             {
                 rb.velocity = new Vector2(rb.velocity.x, jump_force);
+                audio_handler.GetComponent<Audio_Handler>().PlaySound("Player", "player_jump");
                 jumps_left -= 1;
             }
         }
@@ -98,7 +111,7 @@ public class player_controller : MonoBehaviour
         }
     }
 
-    //movement
+    //horizontal movement
     private void handleHorizontalMovement()
     {
         if (Input.GetKey(right_button))
@@ -145,8 +158,18 @@ public class player_controller : MonoBehaviour
                 Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attack_point.position, attack_range, what_is_enemy);
                 foreach (Collider2D enemy in hitEnemies)
                 {
-                    if (facing_right == true) { enemy.GetComponent<player_controller>().Knockback(1); }
-                    else if (facing_right == false) { enemy.GetComponent<player_controller>().Knockback(2); }
+                    if (facing_right == true)
+                    {
+                        enemy.GetComponent<player_controller>().Knockback(1);
+                    }
+                    else if (facing_right == false)
+                    {
+                        enemy.GetComponent<player_controller>().Knockback(2);
+                    }
+                }
+                if(hitEnemies.Length < 1)
+                {
+                    audio_handler.GetComponent<Audio_Handler>().PlaySound("Player", "player_attack");
                 }
             }
         }        
@@ -174,15 +197,18 @@ public class player_controller : MonoBehaviour
             {
                 if (facing_right == false) { rb.velocity = new Vector2(knockbackX / 3, knockbackY / 3); }
                 else { rb.velocity = new Vector2(knockbackX, knockbackY); }
+                audio_handler.GetComponent<Audio_Handler>().PlaySound("Player", "player_hit");
             }
             else if (direction == 2)
             {
                 if (facing_right == true) { rb.velocity = new Vector2(-knockbackX / 3, knockbackY / 3); }
                 else { rb.velocity = new Vector2(-knockbackX, knockbackY); }
+                audio_handler.GetComponent<Audio_Handler>().PlaySound("Player", "player_hit");
             }
             else
             {
                 rb.velocity = new Vector2(rb.velocity.x, knockbackY * 2);
+                audio_handler.GetComponent<Audio_Handler>().PlaySound("Player", "player_jump");
             }
         }
         else
@@ -190,14 +216,17 @@ public class player_controller : MonoBehaviour
             if (direction == 1)
             {
                 rb.velocity = new Vector2(knockbackX, knockbackY);
+                audio_handler.GetComponent<Audio_Handler>().PlaySound("Player", "player_big_hit");
             }
             else if (direction == 2)
             {
                 rb.velocity = new Vector2(-knockbackX, knockbackY);
+                audio_handler.GetComponent<Audio_Handler>().PlaySound("Player", "player_big_hit");
             }
             else
             {
                 rb.velocity = new Vector2(rb.velocity.x, knockbackY * 2);
+                audio_handler.GetComponent<Audio_Handler>().PlaySound("Player", "player_jump");
             }
         }
         
@@ -234,6 +263,7 @@ public class player_controller : MonoBehaviour
         rb.velocity = new Vector2(0, 0);
         if (is_p1) { scoreBoardHandler.GetComponent<ScoreBoardHandler>().p1_scored(); }
         else { scoreBoardHandler.GetComponent<ScoreBoardHandler>().p2_scored(); }
+        audio_handler.GetComponent<Audio_Handler>().PlaySound("Player", "player_score");
     }
 
     public void handleRespawns()

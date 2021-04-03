@@ -15,6 +15,7 @@ TagManager:
   - p2_score_text
   - sceneManager
   - roundOverHandler
+  - audioHandler
   layers:
   - Default
   - TransparentFX

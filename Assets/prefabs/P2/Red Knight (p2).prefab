@@ -114,7 +114,7 @@ MonoBehaviour:
   is_p1: 0
   rb: {fileID: 4854514312354373877}
   move_speed: 8
-  jump_force: 18
+  jump_force: 19
   max_jumps: 1
   ground_check: {fileID: 4854514311576523293}
   check_pos_distance: -0.5

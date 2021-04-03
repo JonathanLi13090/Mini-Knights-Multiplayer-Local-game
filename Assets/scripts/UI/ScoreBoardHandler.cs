@@ -40,24 +40,6 @@ public class ScoreBoardHandler : MonoBehaviour
         handleTimer();
     }
 
-    //public void handleCountdown()
-    //{
-    //    if (start_countdown)
-    //    {
-    //        if (time_remaining > 0)
-    //        {
-    //            time_remaining -= Time.deltaTime;
-    //            DisplayTime(time_remaining);
-    //        }
-    //        else
-    //        {
-    //            handleRoundOver();
-    //            time_remaining = 0;
-    //            timer_running = false;
-    //        }
-    //    }
-    //}
-
     public void handleTimer()
     {
         //idea from https://gamedevbeginner.com/how-to-make-countdown-timer-in-unity-minutes-seconds/

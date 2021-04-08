@@ -111,11 +111,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7091d2f0dff48764a824ce51e780d3de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  is_p1: 0
+  audio_handler: {fileID: 0}
   rb: {fileID: 4854514312354373877}
+  current_move_speed: 8
   move_speed: 8
-  jump_force: 19
+  slow_move_speed: 4
+  current_jump_force: 18.5
+  jump_force: 18.5
+  small_jump_force: 13
   max_jumps: 1
+  knockbackX: 50
+  knockbackY: 15
   ground_check: {fileID: 4854514311576523293}
   check_pos_distance: -0.5
   check_radius: 0.25
@@ -129,14 +135,11 @@ MonoBehaviour:
   still_attack_point: {x: 0, y: 0}
   moving_attack_point: {x: 0.4, y: 0}
   attack_range: 0.8
-  animator: {fileID: 833184324}
   respawn_point: {fileID: 0}
   respawn_layer:
     serializedVersion: 2
     m_Bits: 2048
   respawn_tag: p2 respawn
-  knockbackX: 50
-  knockbackY: 15
   scoreBoardHandler: {fileID: 0}
   scoreBoard_tag: 
   right_button: right
@@ -144,6 +147,8 @@ MonoBehaviour:
   up_button: up
   down_button: down
   attack_button: l
+  is_p1: 0
+  animator: {fileID: 833184324}
 --- !u!50 &4854514312354373877
 Rigidbody2D:
   serializedVersion: 4

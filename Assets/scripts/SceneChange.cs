@@ -19,6 +19,21 @@ public class SceneChange : MonoBehaviour
         }
     }
 
+    public void change_CastleArena()
+    {
+        SceneManager.LoadScene("CastleBattleArena");
+    }
+
+    public void change_DungeonArena()
+    {
+        SceneManager.LoadScene("DungeonBattleArena");
+    }
+
+    public void change_SwampArena()
+    {
+        SceneManager.LoadScene("SwampBattleArena");
+    }
+
     public void ChangeScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);

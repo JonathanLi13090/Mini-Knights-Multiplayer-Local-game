@@ -70,6 +70,8 @@
     <Compile Include="Assets\scripts\UI\ScoreBoardHandler.cs" />
     <Compile Include="Assets\scripts\UI\follow_object.cs" />
     <Compile Include="Assets\scripts\level elements\Bounce_pad.cs" />
+    <Compile Include="Assets\scripts\level elements\moving_platform.cs" />
+    <Compile Include="Assets\scripts\level elements\spider_web.cs" />
     <Compile Include="Assets\scripts\player_controller.cs" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.13f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>

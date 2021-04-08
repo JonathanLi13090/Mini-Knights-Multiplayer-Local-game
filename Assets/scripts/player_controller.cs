@@ -12,9 +12,14 @@ public class player_controller : MonoBehaviour
     //physics
     public Rigidbody2D rb;
 
+    public float current_move_speed;
     public float move_speed;
+    public float slow_move_speed;
 
+    public float current_jump_force;
     public float jump_force;
+    public float small_jump_force;
+
     public int max_jumps;
     private int jumps_left;
 
@@ -65,6 +70,7 @@ public class player_controller : MonoBehaviour
     {
         if(!audio_handler) { audio_handler = GameObject.FindGameObjectWithTag("audioHandler"); }
         if (!scoreBoardHandler) { scoreBoardHandler = GameObject.FindGameObjectWithTag(scoreBoard_tag); }
+        current_move_speed = move_speed;
     }
 
     void Update()
@@ -90,12 +96,12 @@ public class player_controller : MonoBehaviour
         {
             if (is_grounded == true)
             {
-                rb.velocity = new Vector2(rb.velocity.x, jump_force);
+                rb.velocity = new Vector2(rb.velocity.x, current_jump_force);
                 audio_handler.GetComponent<Audio_Handler>().PlaySound("Player", "player_jump");
             }
             else if (jumps_left > 0)
             {
-                rb.velocity = new Vector2(rb.velocity.x, jump_force);
+                rb.velocity = new Vector2(rb.velocity.x, current_jump_force);
                 audio_handler.GetComponent<Audio_Handler>().PlaySound("Player", "player_jump");
                 jumps_left -= 1;
             }
@@ -111,18 +117,24 @@ public class player_controller : MonoBehaviour
         }
     }
 
+    public void change_jump_amount(bool less_jump)
+    {
+        if (less_jump) { current_jump_force = small_jump_force; }
+        else { current_jump_force = jump_force; }
+    }
+
     //horizontal movement
     private void handleHorizontalMovement()
     {
         if (Input.GetKey(right_button))
         {
-            if(shieldUp == true) { rb.velocity = new Vector2(move_speed/2, rb.velocity.y); }
-            else { rb.velocity = new Vector2(move_speed, rb.velocity.y); }
+            if(shieldUp == true) { rb.velocity = new Vector2(current_move_speed / 2, rb.velocity.y); }
+            else { rb.velocity = new Vector2(current_move_speed, rb.velocity.y); }
         }
         else if (Input.GetKey(left_button))
         {
-            if(shieldUp == true) { rb.velocity = new Vector2(-move_speed/2, rb.velocity.y); }
-            else { rb.velocity = new Vector2(-move_speed, rb.velocity.y); }
+            if(shieldUp == true) { rb.velocity = new Vector2(-current_move_speed / 2, rb.velocity.y); }
+            else { rb.velocity = new Vector2(-current_move_speed, rb.velocity.y); }
         }
         else
         {
@@ -139,6 +151,11 @@ public class player_controller : MonoBehaviour
         }
     }
 
+    public void change_move_speed(bool slow_down)
+    {
+        if (slow_down) { current_move_speed = slow_move_speed; }
+        else { current_move_speed = move_speed; }
+    }
     public void Flip()
     {
         facing_right = !facing_right;

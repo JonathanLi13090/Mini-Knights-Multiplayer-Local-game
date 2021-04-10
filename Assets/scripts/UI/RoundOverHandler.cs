@@ -1,41 +1,51 @@
-﻿//using System.Collections;
-//using System.Collections.Generic;
-//using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
 
-//public class RoundOverHandler : MonoBehaviour
-//{
-//    // Start is called before the first frame update
-//    void Start()
-//    {
+public class RoundOverHandler : MonoBehaviour
+{
+    public GameObject SceneChanger;
+    public string SceneChangerTag;
+    public string roundOverScene;
+    public Text win_text;
+    public PlayerScores player_scores;
+    public Text P1_score;
+    public Text P2_score;
 
-//    }
+    // Start is called before the first frame update
+    void Start()
+    {
+        if (!SceneChanger) { SceneChanger = GameObject.FindGameObjectWithTag(SceneChangerTag); }
 
-//    // Update is called once per frame
-//    void Update()
-//    {
+        RoundOver();
+    }
 
-//    }
+    // Update is called once per frame
+    void Update()
+    {
 
-//    public void handleRoundOver()
-//    {
-//        if (P1_score_num > P2_score_num)
-//        {
-//            P1_wins = true;
-//            P2_wins = false;
-//            print("P1 wins!");
-//            WinText.text = "Blue Knight Wins!";
-//        }
-//        else if (P2_score_num > P1_score_num)
-//        {
-//            P2_wins = true;
-//            P1_wins = false;
-//            print("P2 wins!");
-//            WinText.text = "Red Knight Wins!";
-//        }
-//        else
-//        {
-//            print("tie");
-//            WinText.text = "Close Match! Tie Game!";
-//        }
-//    }
-//}
+    }
+
+    public void RoundOver()
+    {
+        P1_score.text = player_scores.P1_score.ToString();
+        P2_score.text = player_scores.P2_score.ToString();
+
+        if (player_scores.P1_score > player_scores.P2_score)
+        {
+            win_text.text = "Red Knight Wins!";
+        }
+        else if(player_scores.P2_score > player_scores.P1_score)
+        {
+            win_text.text = "Blue Knight Wins!";
+        }
+        else if(player_scores.P1_score == player_scores.P2_score)
+        {
+            win_text.text = "Tie Game!";
+        }
+
+        player_scores.P1_score = 0;
+        player_scores.P2_score = 0;
+    }
+}

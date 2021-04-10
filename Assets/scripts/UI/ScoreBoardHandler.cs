@@ -7,8 +7,9 @@ public class ScoreBoardHandler : MonoBehaviour
 {
     public Text P1_score;
     public Text P2_score;
-    public static int P1_score_num = 0;
-    public static int P2_score_num = 0;
+    public int P1_score_num = 0;
+    public int P2_score_num = 0;
+    public PlayerScores player_scores;
 
     public float time_remaining = 10;
     public bool timer_running = false;
@@ -17,7 +18,10 @@ public class ScoreBoardHandler : MonoBehaviour
     public GameObject SceneChanger;
     public string SceneChangerTag;
 
+    public string roundOverScene;
     public GameObject roundOverHandler;
+
+    public bool start_countdown;
 
     // Start is called before the first frame update
     void Start()
@@ -74,18 +78,18 @@ public class ScoreBoardHandler : MonoBehaviour
 
     public void p1_scored()
     {
-        P1_score_num += 1;
-        P1_score.text = P1_score_num.ToString();
+        player_scores.P1_score += 1;
+        P1_score.text = player_scores.P1_score.ToString();
     }
 
     public void p2_scored()
     {
-        P2_score_num += 1;
-        P2_score.text = P2_score_num.ToString();
+        player_scores.P2_score += 1;
+        P2_score.text = player_scores.P2_score.ToString();
     }
 
     public void handleRoundOver()
     {
-        roundOverHandler.GetComponent<RoundOverHandler>().RoundOver();
+        SceneChanger.GetComponent<SceneChange>().ChangeScene(roundOverScene);
     }
 }

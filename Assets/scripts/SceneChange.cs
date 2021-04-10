@@ -7,12 +7,36 @@ public class SceneChange : MonoBehaviour
 {
     public string p1_tag;
     public string p2_tag;
+    public bool change_on_button;
     public string scene_name;
     public string change_scene_button;
 
     private void Update()
     {
-        handleSceneOnButton();
+        if (change_on_button)
+        {
+            handleSceneOnButton();
+        }
+    }
+
+    public void change_CastleArena()
+    {
+        SceneManager.LoadScene("CastleBattleArena");
+    }
+
+    public void change_DungeonArena()
+    {
+        SceneManager.LoadScene("DungeonBattleArena");
+    }
+
+    public void change_SwampArena()
+    {
+        SceneManager.LoadScene("SwampBattleArena");
+    }
+
+    public void change_DojoArena()
+    {
+        SceneManager.LoadScene("TrainingArena");
     }
 
     public void ChangeScene(string sceneName)
@@ -22,7 +46,7 @@ public class SceneChange : MonoBehaviour
 
     public void handleSceneOnButton()
     {
-        if (Input.GetKey(change_scene_button))
+        if (Input.GetKeyDown(change_scene_button))
         {
             ChangeScene(scene_name);
         }

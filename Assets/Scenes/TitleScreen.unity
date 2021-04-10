@@ -367,6 +367,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1599451096994070953, guid: 25feeda63b89db74fa4c6abf9e0b4abb,
+        type: 3}
+      propertyPath: change_on_button
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599451096994070953, guid: 25feeda63b89db74fa4c6abf9e0b4abb,
+        type: 3}
+      propertyPath: scene_name
+      value: LevelSelect
+      objectReference: {fileID: 0}
     - target: {fileID: 1599451096994070958, guid: 25feeda63b89db74fa4c6abf9e0b4abb,
         type: 3}
       propertyPath: m_Name

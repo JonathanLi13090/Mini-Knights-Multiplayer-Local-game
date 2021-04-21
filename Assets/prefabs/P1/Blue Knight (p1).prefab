@@ -73,7 +73,7 @@ MonoBehaviour:
     m_Bits: 16896
   attack_point: {fileID: 3837210142657560923}
   still_attack_point: {x: 0, y: 0}
-  moving_attack_point: {x: 0.5, y: 0}
+  moving_attack_point: {x: 0.25, y: 0}
   attack_range: 0.8
   respawn_point: {fileID: 0}
   respawn_layer:
@@ -87,6 +87,7 @@ MonoBehaviour:
   up_button: w
   down_button: s
   attack_button: f
+  camShake: {fileID: 0}
   is_p1: 1
   animator: {fileID: 528761695}
 --- !u!50 &3837210141197770554

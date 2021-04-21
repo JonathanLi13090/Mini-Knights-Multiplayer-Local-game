@@ -15,6 +15,9 @@ TagManager:
   - p2_score_text
   - sceneManager
   - roundOverHandler
+  - training dummy respawn
+  - audioHandler
+  - shake
   layers:
   - Default
   - TransparentFX

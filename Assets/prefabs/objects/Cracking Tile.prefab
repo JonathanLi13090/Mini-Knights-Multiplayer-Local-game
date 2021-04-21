@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1733142821568235247}
   - component: {fileID: 1733142821568235246}
   - component: {fileID: 1733142821568235241}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cracking Tile
   m_TagString: Untagged
   m_Icon: {fileID: 0}

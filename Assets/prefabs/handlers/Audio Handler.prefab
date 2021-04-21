@@ -47,6 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Background: {fileID: 9035574809283403450}
   PlayerSound: {fileID: 9035574808842192041}
+  EnemySound: {fileID: 0}
   FXPrefab: {fileID: 0}
   audioClips:
   - Name: player_attack
@@ -204,7 +205,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &9035574809283403453
 Transform:
   m_ObjectHideFlags: 0

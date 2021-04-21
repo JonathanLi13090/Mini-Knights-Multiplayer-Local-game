@@ -61,6 +61,7 @@ public class player_controller : MonoBehaviour
     public string attack_button;
 
     //other stuff
+    public GameObject camShake;
     public bool is_p1;
     private bool facing_right = false;
     public Animator animator;
@@ -70,6 +71,7 @@ public class player_controller : MonoBehaviour
     {
         if(!audio_handler) { audio_handler = GameObject.FindGameObjectWithTag("audioHandler"); }
         if (!scoreBoardHandler) { scoreBoardHandler = GameObject.FindGameObjectWithTag(scoreBoard_tag); }
+        if (!camShake) { camShake = GameObject.FindGameObjectWithTag("shake"); }
         current_move_speed = move_speed;
     }
 
@@ -209,16 +211,19 @@ public class player_controller : MonoBehaviour
     public void Knockback(int direction)
     {
         //1 = right, 2 = left
+        
         if(shieldUp == true)
         {
             if (direction == 1)
             {
+                camShake.GetComponent<cameraShake>().shakeCamera();
                 if (facing_right == false) { rb.velocity = new Vector2(knockbackX / 3, knockbackY / 3); }
                 else { rb.velocity = new Vector2(knockbackX, knockbackY); }
                 audio_handler.GetComponent<Audio_Handler>().PlaySound("Player", "player_hit");
             }
             else if (direction == 2)
             {
+                camShake.GetComponent<cameraShake>().shakeCamera();
                 if (facing_right == true) { rb.velocity = new Vector2(-knockbackX / 3, knockbackY / 3); }
                 else { rb.velocity = new Vector2(-knockbackX, knockbackY); }
                 audio_handler.GetComponent<Audio_Handler>().PlaySound("Player", "player_hit");
@@ -233,11 +238,13 @@ public class player_controller : MonoBehaviour
         {
             if (direction == 1)
             {
+                camShake.GetComponent<cameraShake>().shakeCamera();
                 rb.velocity = new Vector2(knockbackX, knockbackY);
                 audio_handler.GetComponent<Audio_Handler>().PlaySound("Player", "player_big_hit");
             }
             else if (direction == 2)
             {
+                camShake.GetComponent<cameraShake>().shakeCamera();
                 rb.velocity = new Vector2(-knockbackX, knockbackY);
                 audio_handler.GetComponent<Audio_Handler>().PlaySound("Player", "player_big_hit");
             }

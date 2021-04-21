@@ -61,6 +61,19 @@ public class Audio_Handler : MonoBehaviour
         Debug.Log("soundclass not found");
         return -1;
     }
+
+    public void muteVolume()
+    {
+        float volume = PlayerSound.volume;
+        if (volume < 1)
+        {
+            PlayerSound.volume = 1f;
+        }
+        else
+        {
+            PlayerSound.volume = 0f;
+        }       
+    }
 }
 //Sound Resource class
 [System.Serializable]

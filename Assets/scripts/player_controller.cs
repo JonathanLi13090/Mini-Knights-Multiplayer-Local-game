@@ -285,8 +285,8 @@ public class player_controller : MonoBehaviour
     {
         transform.position = new Vector2(respawn_point.transform.position.x, respawn_point.transform.position.y);
         rb.velocity = new Vector2(0, 0);
-        if (is_p1) { scoreBoardHandler.GetComponent<ScoreBoardHandler>().p1_scored(); }
-        else { scoreBoardHandler.GetComponent<ScoreBoardHandler>().p2_scored(); }
+        if (is_p1) { scoreBoardHandler.GetComponent<ScoreBoardHandler>().p1KnockedScore(); }
+        else { scoreBoardHandler.GetComponent<ScoreBoardHandler>().p2KnockedScore(); }
         audio_handler.GetComponent<Audio_Handler>().PlaySound("Player", "player_score");
     }
 

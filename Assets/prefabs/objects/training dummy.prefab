@@ -123,10 +123,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 5
+  m_Mass: 6
   m_LinearDrag: 20
   m_AngularDrag: 0.01
-  m_GravityScale: 25
+  m_GravityScale: 35
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -146,14 +146,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 5484332610635024907}
   knockbackX: 70
-  knockbackY: 60
+  knockbackY: 70
   audio_handler: {fileID: 0}
   respawn_point: {fileID: 0}
+  scoreBoardHandler: {fileID: 0}
   respawn_tag: training dummy respawn
   check_radius: 2
   respawn_layer:
     serializedVersion: 2
     m_Bits: 2048
+  isP1: 0
 --- !u!58 &4304472341663380965
 CircleCollider2D:
   m_ObjectHideFlags: 0

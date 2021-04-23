@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6442800848701886110}
   - component: {fileID: 6442800848701886108}
   - component: {fileID: 1762729584}
+  - component: {fileID: 8653249140317917406}
   m_Layer: 0
   m_Name: Bounce Pad
   m_TagString: Untagged
@@ -98,7 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   what_is_player:
     serializedVersion: 2
-    m_Bits: 768
+    m_Bits: 17152
   check_pos: {fileID: 6442800849246936275}
   check_range: 0.5
   animator: {fileID: 1762729584}
@@ -121,6 +122,32 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!61 &8653249140317917406
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6442800848701886081}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &6442800849246936274
 GameObject:
   m_ObjectHideFlags: 0

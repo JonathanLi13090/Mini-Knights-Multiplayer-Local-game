@@ -8,15 +8,16 @@ public class DarkKnight_run : StateMachineBehaviour
     Rigidbody2D rb;
     public float speed = 2.5f;
     public float attackRange;
+    public DarkKnightBoss boss;
 
     //OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        //int choice = Random.Range(1, 3);
-        //if (choice == 1) { player = GameObject.FindGameObjectWithTag("p1").transform; }
-        //if(choice == 2) { player = GameObject.FindGameObjectWithTag("p2").transform; }
-        player = GameObject.FindGameObjectWithTag("p1").transform;
+        int choice = Random.Range(1, 3);
+        if (choice == 1) { player = GameObject.FindGameObjectWithTag("p1").transform; }
+        if (choice == 2) { player = GameObject.FindGameObjectWithTag("p2").transform; }
         rb = animator.GetComponent<Rigidbody2D>();
+        boss = animator.GetComponent<DarkKnightBoss>();
     }
 
     //OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -24,7 +25,10 @@ public class DarkKnight_run : StateMachineBehaviour
     {
         Vector2 target = new Vector2(player.position.x, rb.position.y);
         Vector2 newPos = Vector2.MoveTowards(rb.position, target, speed * Time.deltaTime);
-        
+
+        if(newPos.x - rb.position.x > 0) { boss.faceRight(); }
+        else { boss.faceLeft(); }
+
         if (Vector2.Distance(player.position, rb.position) <= attackRange)
         {
             animator.SetTrigger("attack");

@@ -23,9 +23,14 @@ public class ScoreBoardHandler : MonoBehaviour
 
     public bool start_countdown;
 
+    public bool isTraining;
+
     // Start is called before the first frame update
     void Start()
     {
+        player_scores.P1_score = 0;
+        player_scores.P2_score = 0;
+
         if (!SceneChanger) { SceneChanger = GameObject.FindGameObjectWithTag(SceneChangerTag); }
         if(!roundOverHandler) { roundOverHandler = GameObject.FindGameObjectWithTag("roundOverHandler"); }
 
@@ -76,13 +81,31 @@ public class ScoreBoardHandler : MonoBehaviour
         P2_score.text = P2_score_num.ToString();
     }
 
-    public void p1_scored()
+    public void p1KnockedScore()
+    {
+        if (!isTraining)
+        {
+            player_scores.P1_score += 1;
+            P1_score.text = player_scores.P1_score.ToString();
+        }
+    }
+
+    public void p2KnockedScore()
+    {
+        if (!isTraining)
+        {
+            player_scores.P2_score += 1;
+            P2_score.text = player_scores.P2_score.ToString();
+        }
+    }
+
+    public void p1Scored()
     {
         player_scores.P1_score += 1;
         P1_score.text = player_scores.P1_score.ToString();
     }
 
-    public void p2_scored()
+    public void p2Scored()
     {
         player_scores.P2_score += 1;
         P2_score.text = player_scores.P2_score.ToString();

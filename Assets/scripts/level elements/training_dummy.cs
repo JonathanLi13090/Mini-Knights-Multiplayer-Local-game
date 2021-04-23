@@ -9,15 +9,18 @@ public class training_dummy : MonoBehaviour
     public float knockbackY;
     public GameObject audio_handler;
     public GameObject respawn_point;
+    public GameObject scoreBoardHandler;    
     public string respawn_tag;
     public float check_radius;
     public LayerMask respawn_layer;
     private bool is_respawn;
+    public bool isP1;
 
     // Start is called before the first frame update
     void Start()
     {
         if (!audio_handler) { audio_handler = GameObject.FindGameObjectWithTag("audioHandler"); }
+        if (!scoreBoardHandler) { scoreBoardHandler = GameObject.FindGameObjectWithTag("scoreBoardHandler"); }
     }
 
     // Update is called once per frame
@@ -48,6 +51,8 @@ public class training_dummy : MonoBehaviour
 
     public void RespawnPlayer()
     {
+        if (isP1) { scoreBoardHandler.GetComponent<ScoreBoardHandler>().p1Scored(); }
+        else { scoreBoardHandler.GetComponent<ScoreBoardHandler>().p2Scored(); }
         transform.position = new Vector2(respawn_point.transform.position.x, respawn_point.transform.position.y);
         rb.velocity = new Vector2(0, 0);       
         audio_handler.GetComponent<Audio_Handler>().PlaySound("Player", "player_score");

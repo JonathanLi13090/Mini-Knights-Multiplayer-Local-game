@@ -10,18 +10,6 @@ public class Bounce_pad : MonoBehaviour
 
     public Animator animator;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     private void FixedUpdate()
     {
         handleBounce();
@@ -32,7 +20,7 @@ public class Bounce_pad : MonoBehaviour
         Collider2D[] hitPlayers = Physics2D.OverlapCircleAll(check_pos.position, check_range, what_is_player);        
         foreach (Collider2D player in hitPlayers)
         {
-            player.GetComponent<player_controller>().Knockback(3);            
+            player.SendMessage("Knockback", 3);       
         }
         if(hitPlayers.Length > 0)
         {

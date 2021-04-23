@@ -88,6 +88,14 @@ public class ScoreBoardHandler : MonoBehaviour
             player_scores.P1_score += 1;
             P1_score.text = player_scores.P1_score.ToString();
         }
+        else
+        {
+            if(player_scores.P2_score > 0)
+            {
+                player_scores.P2_score -= 1;
+                P2_score.text = player_scores.P2_score.ToString();
+            }
+        }
     }
 
     public void p2KnockedScore()
@@ -96,6 +104,14 @@ public class ScoreBoardHandler : MonoBehaviour
         {
             player_scores.P2_score += 1;
             P2_score.text = player_scores.P2_score.ToString();
+        }
+        else
+        {
+            if(player_scores.P1_score > 0)
+            {
+                player_scores.P1_score -= 1;
+                P1_score.text = player_scores.P1_score.ToString();
+            }
         }
     }
 

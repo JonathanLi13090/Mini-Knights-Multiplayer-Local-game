@@ -14,6 +14,7 @@ public class Audio_Handler : MonoBehaviour
         fxSounds.Add(Background);
         fxSounds.Add(PlayerSound);
         fxSounds.Add(EnemySound);
+        fxSounds.Add(FXPrefab);
     }
     // Step 4: locate the sound Clip and play it.
     public void PlaySound(int soundSource, int audioIndex)
@@ -36,6 +37,10 @@ public class Audio_Handler : MonoBehaviour
         {
             Background.clip = clip; Background.Play();
         }
+        else if (sourceName == "FX" || sourceName == "fx")
+        {
+            FXPrefab.clip = clip; FXPrefab.Play();
+        }
     }
     // Step 3 : locate the source source
     public void PlaySound(string sourceName, int audioIndex)
@@ -43,6 +48,7 @@ public class Audio_Handler : MonoBehaviour
         if (sourceName == "Player" || sourceName == "player") PlaySound(1, audioIndex);
         if (sourceName == "Background" || sourceName == "background") PlaySound(0, audioIndex);
         if (sourceName == "enemy" || sourceName == "Enemy") PlaySound(2, audioIndex);
+        if (sourceName == "FX" || sourceName == "fx") PlaySound(3, audioIndex);
     }
     // Step 1: Play sound using sourceName and soundclass
     public void PlaySound(string sourceName, string soundclass)
@@ -68,10 +74,16 @@ public class Audio_Handler : MonoBehaviour
         if (volume < 1)
         {
             PlayerSound.volume = 1f;
+            Background.volume = 1f;
+            EnemySound.volume = 1f;
+            FXPrefab.volume = 1f;
         }
         else
         {
             PlayerSound.volume = 0f;
+            Background.volume = 0f;
+            EnemySound.volume = 0f;
+            FXPrefab.volume = 0f;
         }       
     }
 }

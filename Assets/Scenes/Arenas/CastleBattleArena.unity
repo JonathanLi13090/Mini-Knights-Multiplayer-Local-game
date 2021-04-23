@@ -3756,31 +3756,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9035574808759869359, guid: 070367122c3c13e4eb5d0b9c91b4cd2c,
-        type: 3}
-      propertyPath: audioClips.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 9035574808759869359, guid: 070367122c3c13e4eb5d0b9c91b4cd2c,
-        type: 3}
-      propertyPath: audioClips.Array.data[4].clips.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9035574808759869359, guid: 070367122c3c13e4eb5d0b9c91b4cd2c,
-        type: 3}
-      propertyPath: audioClips.Array.data[4].Name
-      value: player_big_hit
-      objectReference: {fileID: 0}
-    - target: {fileID: 9035574808759869359, guid: 070367122c3c13e4eb5d0b9c91b4cd2c,
-        type: 3}
-      propertyPath: audioClips.Array.data[4].clips.Array.data[0]
-      value: 
-      objectReference: {fileID: 8300000, guid: 3e7a3b87d9ea7ac44a3637f52ed3cc52, type: 3}
-    - target: {fileID: 9035574808842192041, guid: 070367122c3c13e4eb5d0b9c91b4cd2c,
-        type: 3}
-      propertyPath: Loop
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 070367122c3c13e4eb5d0b9c91b4cd2c, type: 3}
 --- !u!114 &9035574810409026826 stripped

@@ -231,7 +231,7 @@ public class player_controller : MonoBehaviour
             else
             {
                 rb.velocity = new Vector2(rb.velocity.x, knockbackY * 2);
-                audio_handler.GetComponent<Audio_Handler>().PlaySound("Player", "player_jump");
+                audio_handler.GetComponent<Audio_Handler>().PlaySound("Enemy", "player_bounce");
             }
         }
         else
@@ -251,7 +251,7 @@ public class player_controller : MonoBehaviour
             else
             {
                 rb.velocity = new Vector2(rb.velocity.x, knockbackY * 2);
-                audio_handler.GetComponent<Audio_Handler>().PlaySound("Player", "player_jump");
+                audio_handler.GetComponent<Audio_Handler>().PlaySound("FX", "player_bounce");
             }
         }
         
@@ -287,7 +287,7 @@ public class player_controller : MonoBehaviour
         rb.velocity = new Vector2(0, 0);
         if (is_p1) { scoreBoardHandler.GetComponent<ScoreBoardHandler>().p1KnockedScore(); }
         else { scoreBoardHandler.GetComponent<ScoreBoardHandler>().p2KnockedScore(); }
-        audio_handler.GetComponent<Audio_Handler>().PlaySound("Player", "player_score");
+        audio_handler.GetComponent<Audio_Handler>().PlaySound("Background", "player_score");
     }
 
     public void handleRespawns()

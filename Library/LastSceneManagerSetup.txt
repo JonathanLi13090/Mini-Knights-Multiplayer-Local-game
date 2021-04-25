@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/training maps/TrainingArena.unity
+- path: Assets/Scenes/Arenas/CastleBattleArena.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

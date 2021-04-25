@@ -62,8 +62,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\scripts\Audio_Handler.cs" />
-    <Compile Include="Assets\scripts\SceneChange.cs" />
     <Compile Include="Assets\scripts\Scriptable Objects\PlayerScores.cs" />
     <Compile Include="Assets\scripts\UI\CountdownTimer.cs" />
     <Compile Include="Assets\scripts\UI\RoundOverHandler.cs" />
@@ -72,7 +70,11 @@
     <Compile Include="Assets\scripts\cameraShake.cs" />
     <Compile Include="Assets\scripts\dark knight\DarkKnightBoss.cs" />
     <Compile Include="Assets\scripts\dark knight\DarkKnight_run.cs" />
+    <Compile Include="Assets\scripts\handlers\Audio_Handler.cs" />
+    <Compile Include="Assets\scripts\handlers\PowerupHandler.cs" />
+    <Compile Include="Assets\scripts\handlers\SceneChange.cs" />
     <Compile Include="Assets\scripts\level elements\Bounce_pad.cs" />
+    <Compile Include="Assets\scripts\level elements\SwordPowerup.cs" />
     <Compile Include="Assets\scripts\level elements\cracking_tile.cs" />
     <Compile Include="Assets\scripts\level elements\moving_platform.cs" />
     <Compile Include="Assets\scripts\level elements\spider_web.cs" />

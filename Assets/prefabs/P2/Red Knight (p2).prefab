@@ -134,7 +134,7 @@ MonoBehaviour:
   attack_point: {fileID: 4854514312167144842}
   still_attack_point: {x: 0, y: 0}
   moving_attack_point: {x: 0.25, y: 0}
-  attack_range: 0.8
+  attack_range: 0.6
   respawn_point: {fileID: 0}
   respawn_layer:
     serializedVersion: 2
@@ -150,6 +150,8 @@ MonoBehaviour:
   camShake: {fileID: 0}
   is_p1: 0
   animator: {fileID: 833184324}
+  attack_powerup: 0
+  attack_powerup_time: 8
 --- !u!50 &4854514312354373877
 Rigidbody2D:
   serializedVersion: 4

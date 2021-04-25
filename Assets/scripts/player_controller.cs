@@ -65,6 +65,9 @@ public class player_controller : MonoBehaviour
     public bool is_p1;
     private bool facing_right = false;
     public Animator animator;
+    public bool attack_powerup;
+    private float attack_powerup_time_left;
+    public float attack_powerup_time;
 
     //-----------------------------------------------------------------------------------------------------------------------------------\\
     void Start()
@@ -84,6 +87,7 @@ public class player_controller : MonoBehaviour
         handleAttackPos();
         handleShieldUp();
         handleRespawns();
+        handleAttackPowerup();
     }
 
     private void FixedUpdate()
@@ -178,14 +182,29 @@ public class player_controller : MonoBehaviour
                 Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attack_point.position, attack_range, what_is_enemy);
                 foreach (Collider2D enemy in hitEnemies)
                 {
-                    if (facing_right == true)
+                    if (attack_powerup)
                     {
-                        enemy.SendMessage("Knockback", 1);
+                        if (facing_right == true)
+                        {
+                            enemy.SendMessage("Knockback", 4);
+                        }
+                        else if (facing_right == false)
+                        {
+                            enemy.SendMessage("Knockback", 5);
+                        }
                     }
-                    else if (facing_right == false)
+                    else
                     {
-                        enemy.SendMessage("Knockback", 2);
+                        if (facing_right == true)
+                        {
+                            enemy.SendMessage("Knockback", 1);
+                        }
+                        else if (facing_right == false)
+                        {
+                            enemy.SendMessage("Knockback", 2);
+                        }
                     }
+                    
                 }
                 if(hitEnemies.Length < 1)
                 {
@@ -205,6 +224,28 @@ public class player_controller : MonoBehaviour
         {
             attack_point.localPosition = still_attack_point;
         }
+    }
+
+    public void handleAttackPowerup()
+    {
+        if (attack_powerup)
+        {
+            if (attack_powerup_time_left > 0)
+            {
+                attack_powerup_time_left -= Time.deltaTime;
+            }
+            else
+            {
+                attack_powerup = false;
+                attack_powerup_time_left = 0;
+            }
+        }
+    }
+
+    public void attackPowerupStart()
+    {
+        attack_powerup = true;
+        attack_powerup_time_left = attack_powerup_time;
     }
 
     //knockback
@@ -228,10 +269,22 @@ public class player_controller : MonoBehaviour
                 else { rb.velocity = new Vector2(-knockbackX, knockbackY); }
                 audio_handler.GetComponent<Audio_Handler>().PlaySound("Player", "player_hit");
             }
-            else
+            else if (direction == 3)
             {
                 rb.velocity = new Vector2(rb.velocity.x, knockbackY * 2);
                 audio_handler.GetComponent<Audio_Handler>().PlaySound("Enemy", "player_bounce");
+            }
+            else if (direction == 4)
+            {
+                camShake.GetComponent<cameraShake>().shakeCamera();
+                rb.velocity = new Vector2(knockbackX*2, knockbackY*1.5f);
+                audio_handler.GetComponent<Audio_Handler>().PlaySound("Player", "player_big_hit");
+            }
+            else if (direction == 5)
+            {
+                camShake.GetComponent<cameraShake>().shakeCamera();
+                rb.velocity = new Vector2(-knockbackX*2, knockbackY*1.5f);
+                audio_handler.GetComponent<Audio_Handler>().PlaySound("Player", "player_big_hit");
             }
         }
         else
@@ -248,10 +301,22 @@ public class player_controller : MonoBehaviour
                 rb.velocity = new Vector2(-knockbackX, knockbackY);
                 audio_handler.GetComponent<Audio_Handler>().PlaySound("Player", "player_big_hit");
             }
-            else
+            else if (direction == 3)
             {
                 rb.velocity = new Vector2(rb.velocity.x, knockbackY * 2);
                 audio_handler.GetComponent<Audio_Handler>().PlaySound("FX", "player_bounce");
+            }
+            else if (direction == 4)
+            {
+                camShake.GetComponent<cameraShake>().shakeCamera();
+                rb.velocity = new Vector2(knockbackX*2, knockbackY*1.5f);
+                audio_handler.GetComponent<Audio_Handler>().PlaySound("Player", "player_big_hit");
+            }
+            else if (direction == 5)
+            {
+                camShake.GetComponent<cameraShake>().shakeCamera();
+                rb.velocity = new Vector2(-knockbackX*2, knockbackY*1.5f);
+                audio_handler.GetComponent<Audio_Handler>().PlaySound("Player", "player_big_hit");
             }
         }
         

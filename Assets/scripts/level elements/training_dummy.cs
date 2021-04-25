@@ -42,11 +42,21 @@ public class training_dummy : MonoBehaviour
             rb.velocity = new Vector2(-knockbackX, knockbackY);
             audio_handler.GetComponent<Audio_Handler>().PlaySound("Player", "player_hit");
         }
-        else
+        else if (direction == 3)
         {
             rb.velocity = new Vector2(rb.velocity.x, knockbackY * 2);
             audio_handler.GetComponent<Audio_Handler>().PlaySound("Player", "player_jump");
-        }       
+        }
+        else if (direction == 4)
+        {
+            rb.velocity = new Vector2(knockbackX*2, knockbackY*2);
+            audio_handler.GetComponent<Audio_Handler>().PlaySound("Player", "player_hit");
+        }
+        else if (direction == 5)
+        {
+            rb.velocity = new Vector2(-knockbackX * 2, knockbackY * 2);
+            audio_handler.GetComponent<Audio_Handler>().PlaySound("Player", "player_hit");
+        }
     }
 
     public void RespawnPlayer()

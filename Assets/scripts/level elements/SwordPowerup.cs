@@ -8,7 +8,12 @@ public class SwordPowerup : MonoBehaviour
     public float timeLeft;
     private bool timerStart;
     public SpriteRenderer spriteRenderer;
+    public GameObject audio_handler;
 
+    private void Start()
+    {
+        if (!audio_handler) { audio_handler = GameObject.FindGameObjectWithTag("audioHandler"); }
+    }
     private void Update()
     {
         destructTimer();   

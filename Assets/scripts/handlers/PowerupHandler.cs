@@ -14,7 +14,7 @@ public class PowerupHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        time_remaining = total_time;
     }
 
     // Update is called once per frame

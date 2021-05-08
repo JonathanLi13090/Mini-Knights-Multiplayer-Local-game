@@ -232,7 +232,7 @@ PrefabInstance:
     - target: {fileID: 1599451096994070953, guid: 25feeda63b89db74fa4c6abf9e0b4abb,
         type: 3}
       propertyPath: scene_name
-      value: LevelSelect
+      value: LevelSelectV2
       objectReference: {fileID: 0}
     - target: {fileID: 1599451096994070953, guid: 25feeda63b89db74fa4c6abf9e0b4abb,
         type: 3}
@@ -2384,6 +2384,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 927975991, guid: 5ae4269b9e4c53d4b89236da1d3194ec, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3887036115302969800, guid: 5ae4269b9e4c53d4b89236da1d3194ec,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 8739428685712465558, guid: 5ae4269b9e4c53d4b89236da1d3194ec,
         type: 3}
       propertyPath: m_CullTransparentMesh

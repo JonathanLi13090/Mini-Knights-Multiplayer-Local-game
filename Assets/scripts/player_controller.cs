@@ -68,6 +68,7 @@ public class player_controller : MonoBehaviour
     public bool attack_powerup;
     private float attack_powerup_time_left;
     public float attack_powerup_time;
+    public GameObject swordUI;
 
     //-----------------------------------------------------------------------------------------------------------------------------------\\
     void Start()
@@ -236,6 +237,7 @@ public class player_controller : MonoBehaviour
             }
             else
             {
+                swordUI.SetActive(false);
                 attack_powerup = false;
                 attack_powerup_time_left = 0;
             }
@@ -244,6 +246,7 @@ public class player_controller : MonoBehaviour
 
     public void attackPowerupStart()
     {
+        swordUI.SetActive(true);
         attack_powerup = true;
         attack_powerup_time_left = attack_powerup_time;
     }

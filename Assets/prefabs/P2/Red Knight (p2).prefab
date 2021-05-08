@@ -152,6 +152,7 @@ MonoBehaviour:
   animator: {fileID: 833184324}
   attack_powerup: 0
   attack_powerup_time: 8
+  swordUI: {fileID: 0}
 --- !u!50 &4854514312354373877
 Rigidbody2D:
   serializedVersion: 4
@@ -171,7 +172,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: a134c572cf41d0f4bb9a7eb0855e794b, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!212 &4854514312354373876
 SpriteRenderer:

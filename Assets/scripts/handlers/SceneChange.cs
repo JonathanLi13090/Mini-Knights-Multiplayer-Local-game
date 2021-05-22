@@ -34,11 +34,6 @@ public class SceneChange : MonoBehaviour
         SceneManager.LoadScene("SwampBattleArena");
     }
 
-    public void change_DojoArena()
-    {
-        SceneManager.LoadScene("TrainingArena");
-    }
-
     public void ChangeScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);

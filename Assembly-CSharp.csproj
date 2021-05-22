@@ -79,7 +79,6 @@
     <Compile Include="Assets\scripts\level elements\SwordPowerup.cs" />
     <Compile Include="Assets\scripts\level elements\cracking_tile.cs" />
     <Compile Include="Assets\scripts\level elements\moving_platform.cs" />
-    <Compile Include="Assets\scripts\level elements\spider_web.cs" />
     <Compile Include="Assets\scripts\level elements\training_dummy.cs" />
     <Compile Include="Assets\scripts\levelSelector.cs" />
     <Compile Include="Assets\scripts\player_controller.cs" />

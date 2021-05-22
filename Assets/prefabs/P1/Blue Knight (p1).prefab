@@ -112,7 +112,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: a134c572cf41d0f4bb9a7eb0855e794b, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!212 &3837210141197770497
 SpriteRenderer:

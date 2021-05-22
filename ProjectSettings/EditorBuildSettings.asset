@@ -9,8 +9,14 @@ EditorBuildSettings:
     path: Assets/Scenes/TitleScreen.unity
     guid: f615e5423a5f15144a0d30ead8303c19
   - enabled: 1
+    path: Assets/Scenes/GamemodeSelect.unity
+    guid: 4b960fd12fe96e04e974059ffc120012
+  - enabled: 1
     path: Assets/Scenes/LevelSelectV2.unity
     guid: f0b6bd6be6303124d8935172b9ffd1df
+  - enabled: 1
+    path: Assets/Scenes/LevelSelectTraining.unity
+    guid: ba78eaadf027e7e48a3c34b8bfc1b82e
   - enabled: 1
     path: Assets/Scenes/RoundOverScreen.unity
     guid: 8df9122e28301694f98a3c4780d9e582
@@ -18,12 +24,30 @@ EditorBuildSettings:
     path: Assets/Scenes/Arenas/CastleBattleArena.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/training maps/TrainingArena.unity
-    guid: b6a76fd0b8a918d4c8ed1084c07f6d1b
-  - enabled: 1
     path: Assets/Scenes/Arenas/SwampBattleArena.unity
     guid: 31170079b8676bc4bb2d7b5d52b83792
   - enabled: 1
     path: Assets/Scenes/Arenas/DungeonBattleArena.unity
     guid: 7fd4f6cbf6eebb04c9325e5944ef073d
+  - enabled: 1
+    path: Assets/Scenes/Arenas/ForestBattleArena.unity
+    guid: 6d92246941eb8db43820d0752317f087
+  - enabled: 1
+    path: Assets/Scenes/Arenas/DojoBattleArena.unity
+    guid: bd14d2a7c709fef4cb3d4ab0347c7fde
+  - enabled: 1
+    path: Assets/Scenes/training maps/CastleTrainingArena.unity
+    guid: 93573abfcd7c0154c8998b498b1b4613
+  - enabled: 1
+    path: Assets/Scenes/training maps/DojoTrainingArena.unity
+    guid: b6a76fd0b8a918d4c8ed1084c07f6d1b
+  - enabled: 1
+    path: Assets/Scenes/training maps/DungeonTrainingArena.unity
+    guid: d62f0d4e44a41704db6b167da652ee58
+  - enabled: 1
+    path: Assets/Scenes/training maps/ForestTrainingArena.unity
+    guid: d6e8e58efb95244458318d6472b20939
+  - enabled: 1
+    path: Assets/Scenes/training maps/SwampTrainingArena.unity
+    guid: e459ab147e2228d4aa7f90a8fc75778d
   m_configObjects: {}

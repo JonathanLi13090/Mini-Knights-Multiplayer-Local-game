@@ -8,6 +8,8 @@ public class LevelPreview : MonoBehaviour
     public Sprite dungeonPreview;
     public Sprite castlePreview;
     public Sprite swampPreview;
+    public Sprite dojoPreview;
+    public Sprite forestPreview;
 
     // Start is called before the first frame update
     void Start()
@@ -23,8 +25,10 @@ public class LevelPreview : MonoBehaviour
 
     public void changeSprite(int levelNum)
     {
-        if(levelNum == 1) { spriteRenderer.sprite = castlePreview; }
-        else if(levelNum == 2) { spriteRenderer.sprite = dungeonPreview; }
-        else if(levelNum == 3) { spriteRenderer.sprite = swampPreview; }
+        if (levelNum == 1) { spriteRenderer.sprite = castlePreview; }
+        else if (levelNum == 2) { spriteRenderer.sprite = forestPreview; }
+        else if (levelNum == 3) { spriteRenderer.sprite = dungeonPreview; }
+        else if (levelNum == 4) { spriteRenderer.sprite = dojoPreview; }
+        else if (levelNum == 5) { spriteRenderer.sprite = swampPreview; }
     }
 }

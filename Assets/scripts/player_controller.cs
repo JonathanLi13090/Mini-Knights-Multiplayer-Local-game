@@ -14,11 +14,9 @@ public class player_controller : MonoBehaviour
 
     public float current_move_speed;
     public float move_speed;
-    public float slow_move_speed;
 
     public float current_jump_force;
     public float jump_force;
-    public float small_jump_force;
 
     public int max_jumps;
     private int jumps_left;
@@ -63,6 +61,10 @@ public class player_controller : MonoBehaviour
     //other stuff
     public GameObject camShake;
     public bool is_p1;
+    private string horizontalInputName;
+    private string jumpInputName;
+    private string blockInputName;
+    private string attackInputName;
     private bool facing_right = false;
     public Animator animator;
     public bool attack_powerup;
@@ -77,10 +79,25 @@ public class player_controller : MonoBehaviour
         if (!scoreBoardHandler) { scoreBoardHandler = GameObject.FindGameObjectWithTag(scoreBoard_tag); }
         if (!camShake) { camShake = GameObject.FindGameObjectWithTag("shake"); }
         current_move_speed = move_speed;
+        if (is_p1)
+        {
+            horizontalInputName = "Horizontal1";
+            blockInputName = "Block1";
+            jumpInputName = "Vertical1";
+            attackInputName = "Attack1";
+        }
+        else
+        {
+            horizontalInputName = "Horizontal2";
+            blockInputName = "Block2";
+            jumpInputName = "Vertical2";
+            attackInputName = "Attack2";
+        }
     }
 
     void Update()
     {
+        print(Input.GetAxis("Horizontal1"));
         handleAnimations();
         handleJumpCount();        
         handleJump();
@@ -89,6 +106,7 @@ public class player_controller : MonoBehaviour
         handleShieldUp();
         handleRespawns();
         handleAttackPowerup();
+        checkButtonDown();
     }
 
     private void FixedUpdate()
@@ -96,10 +114,21 @@ public class player_controller : MonoBehaviour
         handleHorizontalMovement();
     }
 
+    bool jumpButtonDown;
+    bool attackButtonDown;
+
+    private void checkButtonDown()
+    {
+        if(Input.GetAxis(jumpInputName) > 0.1) { jumpButtonDown = true; }
+        else { jumpButtonDown = false; }
+        if(Input.GetAxis(attackInputName) > 0.1) { attackButtonDown = true; }
+        else { attackButtonDown = false; }
+    }
+
     //jump
     private void handleJump()
     {
-        if (Input.GetKeyDown(up_button))
+        if (Input.GetAxis(jumpInputName) > 0.1 && jumpButtonDown == false)
         {
             if (is_grounded == true)
             {
@@ -124,21 +153,15 @@ public class player_controller : MonoBehaviour
         }
     }
 
-    public void change_jump_amount(bool less_jump)
-    {
-        if (less_jump) { current_jump_force = small_jump_force; }
-        else { current_jump_force = jump_force; }
-    }
-
     //horizontal movement
     private void handleHorizontalMovement()
     {
-        if (Input.GetKey(right_button))
+        if (Input.GetAxis(horizontalInputName) > 0.01)
         {
             if(shieldUp == true) { rb.velocity = new Vector2(current_move_speed / 2, rb.velocity.y); }
             else { rb.velocity = new Vector2(current_move_speed, rb.velocity.y); }
         }
-        else if (Input.GetKey(left_button))
+        else if (Input.GetAxis(horizontalInputName) < -0.01)
         {
             if(shieldUp == true) { rb.velocity = new Vector2(-current_move_speed / 2, rb.velocity.y); }
             else { rb.velocity = new Vector2(-current_move_speed, rb.velocity.y); }
@@ -148,20 +171,14 @@ public class player_controller : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x/1.3f, rb.velocity.y);
         }
 
-        if (facing_right == true && Input.GetKey(left_button))
+        if (facing_right == true && Input.GetAxis(horizontalInputName) < -0.01)
         {
             Flip();
         }
-        else if (facing_right == false && Input.GetKey(right_button))
+        else if (facing_right == false && Input.GetAxis(horizontalInputName) > 0.1)
         {
             Flip();
         }
-    }
-
-    public void change_move_speed(bool slow_down)
-    {
-        if (slow_down) { current_move_speed = slow_move_speed; }
-        else { current_move_speed = move_speed; }
     }
 
     public void Flip()
@@ -177,7 +194,7 @@ public class player_controller : MonoBehaviour
     {
         if(shieldUp == false)
         {
-            if (Input.GetKeyDown(attack_button))
+            if (Input.GetAxis(attackInputName) > 0.1 && attackButtonDown == false)
             {
                 animator.SetTrigger("isAttacking");
                 Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attack_point.position, attack_range, what_is_enemy);
@@ -328,7 +345,7 @@ public class player_controller : MonoBehaviour
     //shield up
     public void handleShieldUp()
     {
-        if (Input.GetKey(down_button))
+        if (Input.GetAxis(blockInputName) > 0.1)
         {
             shieldUp = true;
             animator.SetBool("shieldUp", true);

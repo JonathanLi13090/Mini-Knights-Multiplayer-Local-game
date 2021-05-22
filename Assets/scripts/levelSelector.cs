@@ -18,7 +18,7 @@ public class levelSelector : MonoBehaviour
     void Start()
     {
         if (!sceneManager) { sceneManager = GameObject.FindGameObjectWithTag("sceneManager"); }
-        current_position = 2;
+        current_position = 3;
     }
 
     // Update is called once per frame
@@ -45,7 +45,7 @@ public class levelSelector : MonoBehaviour
     {
         if (Input.GetKeyDown(right_button) || Input.GetKeyDown(right_button2))
         {
-            if(current_position < 3)
+            if(current_position < 5)
             {
                 transform.Translate(moveDistance, 0, 0);
                 current_position += 1;
@@ -64,13 +64,19 @@ public class levelSelector : MonoBehaviour
 
     public void selectBattleLevel()
     {
-        if(current_position == 1) { sceneManager.GetComponent<SceneChange>().change_CastleArena(); }
-        else if(current_position == 2) { sceneManager.GetComponent<SceneChange>().change_DungeonArena(); }
-        else if(current_position == 3) { sceneManager.GetComponent<SceneChange>().change_SwampArena(); }
+        if (current_position == 1) { sceneManager.GetComponent<SceneChange>().ChangeScene("CastleBattleArena"); }
+        else if (current_position == 2) { sceneManager.GetComponent<SceneChange>().ChangeScene("ForestBattleArena"); }
+        else if (current_position == 3) { sceneManager.GetComponent<SceneChange>().ChangeScene("DungeonBattleArena"); }
+        else if (current_position == 4) { sceneManager.GetComponent<SceneChange>().ChangeScene("DojoBattleArena"); }
+        else if (current_position == 5) { sceneManager.GetComponent<SceneChange>().ChangeScene("SwampBattleArena"); }
     }
     
     public void selectDojoLevel()
     {
-
+        if (current_position == 1) { sceneManager.GetComponent<SceneChange>().ChangeScene("CastleTrainingArena"); }
+        else if (current_position == 2) { sceneManager.GetComponent<SceneChange>().ChangeScene("ForestTrainingArena"); }
+        else if (current_position == 3) { sceneManager.GetComponent<SceneChange>().ChangeScene("DungeonTrainingArena"); }
+        else if (current_position == 4) { sceneManager.GetComponent<SceneChange>().ChangeScene("DojoTrainingArena"); }
+        else if (current_position == 5) { sceneManager.GetComponent<SceneChange>().ChangeScene("SwampTrainingArena"); }
     }
 }

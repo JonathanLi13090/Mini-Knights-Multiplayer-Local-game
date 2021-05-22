@@ -115,10 +115,8 @@ MonoBehaviour:
   rb: {fileID: 4854514312354373877}
   current_move_speed: 8
   move_speed: 8
-  slow_move_speed: 4
   current_jump_force: 18.5
   jump_force: 18.5
-  small_jump_force: 13
   max_jumps: 1
   knockbackX: 50
   knockbackY: 15
@@ -172,7 +170,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: a134c572cf41d0f4bb9a7eb0855e794b, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!212 &4854514312354373876
 SpriteRenderer:

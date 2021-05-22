@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class gamemodeSelect : MonoBehaviour
 {
@@ -11,13 +12,15 @@ public class gamemodeSelect : MonoBehaviour
     public string right_button2;
     public string left_button;
     public string left_button2;
-    public GameObject level_preview;
+    public Text gamemode_def;
+    public string tournament_mode;
+    public string training_mode;
 
     // Start is called before the first frame update
     void Start()
     {
         if (!sceneManager) { sceneManager = GameObject.FindGameObjectWithTag("sceneManager"); }
-        current_position = 2;
+        current_position = 1;
     }
 
     // Update is called once per frame
@@ -34,7 +37,7 @@ public class gamemodeSelect : MonoBehaviour
     {
         if (Input.GetKeyDown(right_button) || Input.GetKeyDown(right_button2))
         {
-            if (current_position < 3)
+            if (current_position < 2)
             {
                 transform.Translate(moveDistance, 0, 0);
                 current_position += 1;
@@ -48,13 +51,14 @@ public class gamemodeSelect : MonoBehaviour
                 current_position -= 1;
             }
         }
-        level_preview.GetComponent<LevelPreview>().changeSprite(current_position);
+        
+        if(current_position == 1) { gamemode_def.text = training_mode; }
+        else if(current_position == 2) { gamemode_def.text = tournament_mode; }
     }
 
     public void selectLevel()
     {
-        if (current_position == 1) { sceneManager.GetComponent<SceneChange>().change_CastleArena(); }
-        else if (current_position == 2) { sceneManager.GetComponent<SceneChange>().change_DungeonArena(); }
-        else if (current_position == 3) { sceneManager.GetComponent<SceneChange>().change_SwampArena(); }
+        if (current_position == 1) { sceneManager.GetComponent<SceneChange>().ChangeScene("LevelSelectTraining"); }
+        else if (current_position == 2) { sceneManager.GetComponent<SceneChange>().ChangeScene("LevelSelectV2"); }
     }
 }

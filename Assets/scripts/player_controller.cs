@@ -97,7 +97,6 @@ public class player_controller : MonoBehaviour
 
     void Update()
     {
-        print(Input.GetAxis("Horizontal1"));
         handleAnimations();
         handleJumpCount();        
         handleJump();

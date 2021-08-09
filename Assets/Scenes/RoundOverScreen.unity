@@ -232,7 +232,7 @@ PrefabInstance:
     - target: {fileID: 1599451096994070953, guid: 25feeda63b89db74fa4c6abf9e0b4abb,
         type: 3}
       propertyPath: scene_name
-      value: LevelSelectV2
+      value: GamemodeSelect
       objectReference: {fileID: 0}
     - target: {fileID: 1599451096994070953, guid: 25feeda63b89db74fa4c6abf9e0b4abb,
         type: 3}
